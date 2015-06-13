@@ -95,7 +95,7 @@ func main() {
 }
 
 func usage() {
-	fmt.Println(`ghref -hdv <owner>/<repo> [<branchname>|<tagname>|heads]",
+	fmt.Println(`ghref -hdv <owner>/<repo> [<branchname>|<tagname>]",
       => refs from a github repo (owner/rename)
 
 ghref displays, for a given GitHub repo, the SHA1 for a branch or a tag,
@@ -103,7 +103,7 @@ or it find the default branch (remote HEAD) when no parameter is given.
 
 By default, the output is only the SHA1 or branch name, 
 or nothing if the repo (or branch or tag) does not exist.
-That way, the ghref output can be pass to another command (batch usage)
+That way, the ghref output can be passed to another command (batch usage)
 
 For example, to find the SHA1 of the *default* branch of a repo:
 
