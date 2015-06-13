@@ -42,7 +42,7 @@ Note: it is also copied to the clipboard. (`CTRL`/`Command`+`V` to paste the res
 - `<branchname>`: name of the branch, to look for its SHA1
 - `<tagname>`: name of the tag, to look for its SHA1
 
-### Flags (posix)
+### Flags ([posix argument convention](http://programmers.stackexchange.com/q/70357/3915))
 
 - `--help`, `-h`: display this usage and exit
 - `--verbose`, `-v`: if set, prints a detailed output (not for batch usage)
