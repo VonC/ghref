@@ -105,6 +105,11 @@ By default, the output is only the SHA1 or branch name,
 or nothing if the repo (or branch or tag) does not exist.
 That way, the ghref output can be pass to another command (batch usage)
 
+For example, to find the SHA1 of the *default* branch of a repo:
+
+     ghref git/git    | xargs  ghref git/git
+    (default branch)          (sha1 of that branch)
+
 Note: it is also copied to the clipboard. (CTRL/Command+V to paste the result)
 
 Parameters:
