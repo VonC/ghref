@@ -21,6 +21,7 @@ var pdbg *godbg.Pdbg
 var debug bool
 var verbose bool
 var help bool
+var version bool
 
 func init() {
 	ex = exit.Default()
@@ -29,12 +30,17 @@ func init() {
 	flag.BoolVarP(&verbose, "verbose", "v", false, `instead of just the SHA1, display a verbose output
 		not suited for batch usage`)
 	flag.BoolVarP(&debug, "debug", "d", false, "output debug informations (not for batch usage)")
+	flag.BoolVarP(&version, "version", "V", false, "display ghref version")
 }
 
 func main() {
 	flag.Parse()
 	if help {
 		usage()
+		ex.Exit(0)
+	}
+	if version {
+		fmt.Print("ghref version " + getVersion())
 		ex.Exit(0)
 	}
 	nargs := len(flag.Args())
@@ -124,6 +130,7 @@ Flags (posix)
 --help, -h: display this usage and exit
 --verbose, -v: if set, prints a detailed output (not for batch usage)
 --debug, -d: if set, add debug information
+--version, -V: display version
 `)
 }
 
