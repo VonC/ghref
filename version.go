@@ -1,5 +1,5 @@
 package main
 
 func getVersion() string {
-	return "heads/master-0-gc024c28"
+	return "v1.0.0-0-gb5fd7d9"
 }
