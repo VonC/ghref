@@ -1,6 +1,8 @@
 #!/bin/sh
 v=$(git describe --all --long --abbrev=7)
-n=$(git ls-files -m|grep -v version.go| awk '{ print } END { print NR }')
+git update-index --assume-unchanged -- $1
+n=$(git ls-files -m|wc -l)
+git update-index --no-assume-unchanged -- $1
 if [[ ${n} -gt 0 ]]; then
   sed -e "s;xx\";\";g" $1
 else
