@@ -1,8 +1,9 @@
 #!/bin/sh
-v=$(git describe --all --long --abbrev=7)
-git update-index --assume-unchanged -- version.go
-n=$(git ls-files -m|wc -l)
-git update-index --no-assume-unchanged -- version.go
-if [[ ${n} -eq 0 ]]; then
+n=$(git ls-files -m|grep -v version.go|wc -l)
+s=$(git log -1 --pretty=format:%s)
+if [[ ${n} -eq 0 && ${s} != version.go* ]]; then
+  v=$(git describe --tag --long --abbrev=7)
   sed -i "s;\"[^\"]*\?\";\"${v}\";g" version.go
+  git add version.go
+  git commit -m "version.go: bump to version ${v}"
 fi
